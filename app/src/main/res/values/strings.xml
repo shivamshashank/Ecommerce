@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Ecommerce App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="left_texture_image">Left Texture Image</string>
+    <string name="ellipse_image">Ellipse Image</string>
+    <string name="the_right_address_nfor_shopping_nanyday">The Right Address\nFor Shopping\nAnyday</string>
+    <string name="it_is_now_very_easy_to_reach_the_nbest_quality_among_all_the_nproducts_on_the_internet">It is now very easy to reach the\nbest quality among all the\nproducts on the internet!</string>
+    <string name="start">Start</string>
+</resources>

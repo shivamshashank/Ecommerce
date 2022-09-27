@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.authentication.IntroductionFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineLeftTexture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.33" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/left_texture_image"
+        android:scaleType="centerCrop"
+        android:src="@drawable/texture_left"
+        app:layout_constraintBottom_toBottomOf="@id/guidelineLeftTexture"
+        app:layout_constraintDimensionRatio="1:3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEllipseLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEllipseRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEllipseTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.19" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEllipseBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.52" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineTheRightAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.36" />
+
+    <ImageView
+        android:id="@+id/ellipse"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/ellipse_image"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ellips"
+        app:layout_constraintBottom_toBottomOf="@id/guidelineEllipseBottom"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEllipseRight"
+        app:layout_constraintStart_toStartOf="@id/guidelineEllipseLeft"
+        app:layout_constraintTop_toTopOf="@id/guidelineEllipseTop" />
+
+    <TextView
+        android:id="@+id/the_right_address"
+        style="@style/h4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/the_right_address_nfor_shopping_nanyday"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEllipseRight"
+        app:layout_constraintStart_toStartOf="@id/guidelineEllipseLeft"
+        app:layout_constraintTop_toTopOf="@id/guidelineTheRightAddress" />
+
+    <TextView
+        android:id="@+id/textViewQuality"
+        style="@style/h2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/it_is_now_very_easy_to_reach_the_nbest_quality_among_all_the_nproducts_on_the_internet"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEllipseRight"
+        app:layout_constraintStart_toStartOf="@id/guidelineEllipseLeft"
+        app:layout_constraintTop_toBottomOf="@id/the_right_address" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/blueButtonStyle"
+        android:layout_width="@dimen/smallButtonWidth"
+        android:layout_height="@dimen/smallButtonHeight"
+        android:text="@string/start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewQuality" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
