@@ -9,7 +9,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import javax.inject.Inject
 
 @HiltViewModel
@@ -22,6 +25,9 @@ class AuthenticationViewModel @Inject constructor(
 
     private val _login = MutableStateFlow<Resource<FirebaseUser>>(Resource.Initial())
     val login: MutableStateFlow<Resource<FirebaseUser>> = _login
+
+    private val _resetPassword = MutableStateFlow<Resource<String>>(Resource.Initial())
+    val resetPassword: MutableStateFlow<Resource<String>> = _resetPassword
 
     fun registerWithEmailAndPassword(user: User, password: String) {
         _register.value = Resource.Loading()
@@ -68,6 +74,19 @@ class AuthenticationViewModel @Inject constructor(
             }
             .addOnFailureListener {
                 _login.value = Resource.Error(it.message ?: "")
+            }
+    }
+
+    fun resetPassword(email: String) {
+        _resetPassword.value = Resource.Loading()
+
+        firebaseAuth
+            .sendPasswordResetEmail(email)
+            .addOnSuccessListener {
+                _resetPassword.value = Resource.Success(email)
+            }
+            .addOnFailureListener {
+                _resetPassword.value = Resource.Error(it.message ?: UNKNOWN_ERROR)
             }
     }
 }

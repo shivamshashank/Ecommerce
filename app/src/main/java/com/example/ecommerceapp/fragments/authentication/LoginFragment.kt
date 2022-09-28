@@ -13,11 +13,13 @@ import androidx.navigation.fragment.findNavController
 import com.example.ecommerceapp.R
 import com.example.ecommerceapp.activities.ShoppingActivity
 import com.example.ecommerceapp.databinding.FragmentLoginBinding
+import com.example.ecommerceapp.dialogs.setUpBottomSheetDialog
 import com.example.ecommerceapp.utils.Constants.UNKNOWN_ERROR
 import com.example.ecommerceapp.utils.Resource
 import com.example.ecommerceapp.utils.validateEmail
 import com.example.ecommerceapp.utils.validatePassword
 import com.example.ecommerceapp.view_model.AuthenticationViewModel
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -61,6 +63,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     viewModel.loginWithEmailAndPassword(email, password)
                 }
             }
+
+            textViewForgotPassword.setOnClickListener {
+                setUpBottomSheetDialog { email ->
+                    viewModel.resetPassword(email)
+                }
+            }
         }
 
         lifecycleScope.launchWhenStarted {
@@ -84,6 +92,26 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                             it.message ?: UNKNOWN_ERROR,
                             Toast.LENGTH_LONG
                         ).show()
+                    }
+                }
+            }
+        }
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.resetPassword.collect {
+                when (it) {
+                    is Resource.Initial -> Unit
+                    is Resource.Loading -> Unit
+                    is Resource.Success -> {
+                        Toast.makeText(
+                            requireContext(),
+                            "Reset password link send to email successfully!",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                    is Resource.Error -> {
+                        Toast.makeText(requireContext(), it.message.toString(), Toast.LENGTH_LONG)
+                            .show()
                     }
                 }
             }
