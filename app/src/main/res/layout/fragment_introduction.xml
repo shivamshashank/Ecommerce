@@ -99,9 +99,10 @@
         app:layout_constraintTop_toBottomOf="@id/the_right_address" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/startButton"
         style="@style/blueButtonStyle"
         android:layout_width="@dimen/smallButtonWidth"
-        android:layout_height="@dimen/smallButtonHeight"
+        android:layout_height="@dimen/buttonHeight"
         android:text="@string/start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -6,6 +6,10 @@
 
     <dimen name="buttonCorners">8dp</dimen>
 
+    <dimen name="buttonHeight">55dp</dimen>
+
     <dimen name="smallButtonWidth">130dp</dimen>
-    <dimen name="smallButtonHeight">55dp</dimen>
+    <dimen name="mediumButtonWidth">200dp</dimen>
+
+    <dimen name="editTextHeight">52dp</dimen>
 </resources>
