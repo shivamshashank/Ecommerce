@@ -19,7 +19,6 @@ import com.example.ecommerceapp.utils.Resource
 import com.example.ecommerceapp.utils.validateEmail
 import com.example.ecommerceapp.utils.validatePassword
 import com.example.ecommerceapp.view_model.AuthenticationViewModel
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
